@@ -18,7 +18,7 @@ public class MergeSort implements ISorter {
         mergeSort(input, start,mid);
         // the end index is always 1 greater then the last index in the array
         mergeSort(input, mid, end);
-        merge(input, start, mid, end);
+        reverseMerge(input, start, mid, end);
     }
 
     public void merge(int[] input, int start, int mid, int end) {
@@ -60,7 +60,7 @@ public class MergeSort implements ISorter {
  * with length `0` making no changes to the array, keeping `input` the same.
  * Input[12, 15, 13, 20, 21]
  * Temp[12, 13, 15]
- * Input[12, 13, 15, 20, 21] <-- Sorted array 
+ * Input[12, 13, 15, 20, 21] <-- Sorted array
  *
  * Flip side: Right Finishes first
  * If the right side finishes first `j`, this means we have items left over in (i) since that is
@@ -72,6 +72,41 @@ public class MergeSort implements ISorter {
  * Since they are already sorted and we know they are larger then left we can just copy at the end.
  * Input[12, 13, 15, 20, 21] <-- Sorted array
  */
+
+    public void reverseMerge(int[] input, int start, int mid, int end) {
+
+        // input[mid-1] => last element in left partition
+        // input[mid]   => First element in right partition
+        // if the last element in left if smaller or equal to
+        // first in right partition that means they are already
+        // sorted.
+        if(input[mid -1] >= input[mid]) {
+            return;
+        }
+
+        int i = start;
+        int j = mid;
+        int tempIndex = 0;
+        int[] temp = new int[end - start];
+        while(i<mid && j<end) {
+            temp[tempIndex++] = input[i] >= input[j] ? input[i++] : input[j++];
+        }
+
+        // Special condition what if
+        // Example 1:
+        // ---> Left: { 12, 15 }
+        // ---> Right:{ 13, 20, 21 }
+        // Left over right array elements are always GREATER hence why they are not copied
+        // remove needless work
+        // Same does NOT work with flip side
+        // Example 2:
+        // ---> L: { 12, 20, 21 }
+        // ---> R: { 13, 15 }
+        System.arraycopy(input, i, input, start + tempIndex, mid - i);
+        System.arraycopy(temp, 0, input, start,tempIndex);
+
+    }
+
     @Override
     public void print(int[] array) {
         System.out.println("Merge Sort:");

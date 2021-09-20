@@ -6,6 +6,7 @@ package datastructure.algorithms;
 import datastructure.algorithms.sorting.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class App {
     public String getGreeting() {
@@ -20,20 +21,17 @@ public class App {
         sortingAlgorithms.add(new InsertionSort());
         sortingAlgorithms.add(new ShellSort());
         sortingAlgorithms.add(new MergeSort());
+        sortingAlgorithms.add(new QuickSort());
 
 //        System.out.println(new App().getGreeting());
-        int [] intArray = new int[6];
 
-        intArray[0] = 20;
-        intArray[1] = -1;
-        intArray[2] = 22;
-        intArray[3] = 30;
-        intArray[4] = 2;
-        intArray[5] = 9;
         for(ISorter sorter: sortingAlgorithms){
+            int[] intArray = {20, 35, -15, 7, 55, 1, -22};
             sorter.sort(intArray);
             sorter.print(intArray);
         }
 
+
+//        Arrays.parallelSort(intArray);
     }
 }
