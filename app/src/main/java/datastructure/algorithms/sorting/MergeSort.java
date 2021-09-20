@@ -41,18 +41,37 @@ public class MergeSort implements ISorter {
         }
 
         // Special condition what if
+        // Example 1:
         // ---> Left: { 12, 15 }
         // ---> Right:{ 13, 20, 21 }
         // Left over right array elements are always GREATER hence why they are not copied
         // remove needless work
         // Same does NOT work with flip side
+        // Example 2:
         // ---> L: { 12, 20, 21 }
         // ---> R: { 13, 15 }
         System.arraycopy(input, i, input, start + tempIndex, mid - i);
         System.arraycopy(temp, 0, input, start,tempIndex);
 
     }
-
+/* Left Finishes first
+ * Explaining why we do the first arraycopy above. If we hit the situation where left finishes first
+ * this will mean we traversed the entire 'i' that means the `mid == i` that will make the arraycopy
+ * with length `0` making no changes to the array, keeping `input` the same.
+ * Input[12, 15, 13, 20, 21]
+ * Temp[12, 13, 15]
+ * Input[12, 13, 15, 20, 21] <-- Sorted array 
+ *
+ * Flip side: Right Finishes first
+ * If the right side finishes first `j`, this means we have items left over in (i) since that is
+ * the back of the array we need to copy them over to the front of the input array. Else they will
+ * be overwritten with the second arraycopy. Example be from above `Example 2`
+ * Input[12, 20, 21, 13, 15]
+ * Temp[12, 13, 15]
+ * Note 20, and 21 will get overwritten with second arraycopy we need to move them to the end index(3,4)
+ * Since they are already sorted and we know they are larger then left we can just copy at the end.
+ * Input[12, 13, 15, 20, 21] <-- Sorted array
+ */
     @Override
     public void print(int[] array) {
         System.out.println("Merge Sort:");
