@@ -19,6 +19,7 @@ public class App {
         sortingAlgorithms.add(new SelectionSort());
         sortingAlgorithms.add(new InsertionSort());
         sortingAlgorithms.add(new ShellSort());
+        sortingAlgorithms.add(new MergeSort());
 
 //        System.out.println(new App().getGreeting());
         int [] intArray = new int[6];
