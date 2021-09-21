@@ -2,6 +2,9 @@ package datastructure.algorithms.stacks;
 
 import datastructure.algorithms.list.Employee;
 
+import java.util.LinkedList;
+import java.util.Locale;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -37,5 +40,40 @@ public class Main {
         System.out.println("Peek:"+ linkedStack.peek());
         System.out.println("Pop:"+ linkedStack.pop());
         linkedStack.printStack();
+
+        System.out.println("----------------Palindrome Stack----------------");
+        System.out.println(checkForPalindrome("racecar"));
+        System.out.println(checkForPalindrome("abccba"));
+        System.out.println(checkForPalindrome("was it a car or a cat I saw?"));
+        System.out.println(checkForPalindrome("I did, did i?"));
+        System.out.println(checkForPalindrome("Don't nod"));
+        System.out.println(checkForPalindrome("hello"));
+    }
+
+    public static boolean checkForPalindrome(String input) {
+        String allowedChars = "abcdefghijklmnopqrstuvwxyz";
+
+        String lowerCase = input.toLowerCase();
+        LinkedList<Character> stack = new LinkedList<>();
+        StringBuilder stringNoPunctuation = new StringBuilder(input.length());
+
+        for (int i = 0; i<lowerCase.length(); i++) {
+            char c = lowerCase.charAt(i);
+            // if the indexOf(c) fails it returns -1 -> char does not exist in string.
+            if (allowedChars.indexOf(c) != -1) {
+                // allowed char
+                stringNoPunctuation.append(c);
+                stack.push(c);
+            } else {
+                // NOT Allowed, the char passed does NOT exist in the allow list.
+            }
+        }
+
+        StringBuilder reverseString = new StringBuilder(stack.size());
+        while (!stack.isEmpty()) {
+            reverseString.append(stack.pop());
+        }
+
+        return reverseString.toString().equals(stringNoPunctuation.toString());
     }
 }
