@@ -49,6 +49,22 @@ public class Heap {
         return deletedValue;
     }
 
+    public void sort() {
+        int lastHeapIndex = size - 1;
+
+        for (int i = 0; i < lastHeapIndex; i++) {
+            int temp = heap[0];
+            heap[0] = heap[lastHeapIndex - i];
+            heap[lastHeapIndex - i] = temp;
+            // why are we adding lastHeapIndex - i - 1?
+            // size always points to the next available spot so we need to point at the end `-1`
+            // next why `- i` part? well we need to exclude the last spot since we are sorting
+            // and this is a max heap we are putting the largest value in the correct spot so
+            // we want to ignore that when we heapify this heap.
+            fixHeapBelow(0, lastHeapIndex - i - 1);
+        }
+    }
+
     private void fixHeapBelow(int index, int lastHeapIndex) {
         int childSwap;
 
@@ -85,6 +101,14 @@ public class Heap {
             index = getParent(index);
         }
         heap[index] = newValue;
+    }
+
+    public int peek() {
+        if (isEmpty()){
+            throw new IndexOutOfBoundsException("Heap is empty");
+        }
+
+        return heap[0];
     }
 
     public void printHeap() {
