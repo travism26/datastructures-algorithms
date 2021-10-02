@@ -19,6 +19,7 @@ class Solution {
 
     }
 
+    // Find the sum of three values that equal 0
     public void findSumOfThree(int[] input) {
         //                       i start       end
         //                       |  |          |
