@@ -21,5 +21,7 @@ public class BinarySearch {
         System.out.println(binaryTree.get(27));
         System.out.println(binaryTree.get(17));
         System.out.println(binaryTree.get(8888));
+        System.out.println(binaryTree.max());
+        System.out.println(binaryTree.min());
     }
 }

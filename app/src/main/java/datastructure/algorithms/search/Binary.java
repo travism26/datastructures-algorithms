@@ -1,11 +1,13 @@
 package datastructure.algorithms.search;
 
+import java.util.Arrays;
+
 public class Binary {
 
     public int iterativeBinarySearch(int[] input, int value) {
         int start = 0;
         int end = input.length;
-
+        Arrays.sort(input);
         while (start < end) {
             int midpoint = (start + end) / 2;
             System.out.println("Midpoint=" + midpoint);
@@ -47,6 +49,7 @@ public class Binary {
     public static void main(String[] args) {
         Binary searcher = new Binary();
         int[] data = { -22, -15, 1, 7, 20, 35, 55};
+        System.out.println("Size:"+data.length);
 //        System.out.println(searcher.iterativeBinarySearch(data, -15));
 //        System.out.println(searcher.iterativeBinarySearch(data, 35));
 //        System.out.println(searcher.iterativeBinarySearch(data, 8888));

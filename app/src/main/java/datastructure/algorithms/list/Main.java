@@ -56,6 +56,7 @@ public class Main {
     public static void intersect(int[] arrayOne, int[] arrayTwo) {
 
         HashMap<Integer, Integer> occurrences = new HashMap<>();
+
         for (int i = 0; i<arrayOne.length; i++){
             int value = arrayOne[i];
             int count = occurrences.getOrDefault(value, 0); // get the value at i or set 0

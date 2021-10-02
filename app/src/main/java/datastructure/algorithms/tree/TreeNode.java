@@ -50,6 +50,23 @@ public class TreeNode {
         return null;
     }
 
+    public int min() {
+        if(this.leftChild == null) {
+            return this.data;
+        } else {
+            return this.leftChild.min();
+        }
+    }
+
+    public int max() {
+        if (this.rightChild == null) {
+            return this.data;
+        } else {
+            return this.rightChild.max();
+        }
+
+    }
+
     public void traverseInOrder() {
         if (leftChild != null) {
             leftChild.traverseInOrder();
