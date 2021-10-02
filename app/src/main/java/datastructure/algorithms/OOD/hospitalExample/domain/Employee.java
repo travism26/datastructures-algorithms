@@ -1,6 +1,6 @@
-package datastructure.algorithms.OOD;
+package datastructure.algorithms.OOD.hospitalExample.domain;
 
-public class Employee {
+public abstract class Employee {
     private long id;
     private String name;
     private String department; // this might be better as its own object?
@@ -12,6 +12,8 @@ public class Employee {
         this.department = department;
         this.working = working;
     }
+
+    public abstract void performDuties();
 
     public long getId() {
         return id;
@@ -43,5 +45,15 @@ public class Employee {
 
     public void setWorking(boolean working) {
         this.working = working;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", department='" + department + '\'' +
+                ", working=" + working +
+                '}';
     }
 }

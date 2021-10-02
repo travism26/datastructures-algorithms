@@ -1,0 +1,14 @@
+package datastructure.algorithms.designPatterns.dependencyInjection;
+
+public class LargeEngine implements Engine {
+    private int horsePower;
+
+    public LargeEngine(int horsePower) {
+        this.horsePower = horsePower;
+    }
+
+    @Override
+    public void startEngine() {
+        System.out.println("Started Large "+ this.horsePower + "hp engine");
+    }
+}
