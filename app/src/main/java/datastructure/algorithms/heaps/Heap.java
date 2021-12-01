@@ -96,6 +96,7 @@ public class Heap {
 
     public void fixHeapAbove(int index) {
         int newValue = heap[index]; // we just inserted this guy
+        // if we didnt hit the root and the parent is larger than newValue
         while(index > 0 && newValue > heap[getParent(index)]) {
             heap[index] = heap[getParent(index)]; // assign the parent where the new value is
             index = getParent(index);

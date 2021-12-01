@@ -2,7 +2,9 @@ package datastructure.algorithms.queues;
 
 import datastructure.algorithms.list.Employee;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Main {
 
@@ -57,6 +59,12 @@ public class Main {
         System.out.println(checkForPalindrome("I did, did i?"));
         System.out.println(checkForPalindrome("hello"));
         System.out.println(checkForPalindrome("Don't nod"));
+
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+
+        System.out.println(list.size());
     }
 
     // Using Queues and stacks together!

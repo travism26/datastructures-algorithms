@@ -16,36 +16,24 @@ public class Main {
     // Multi threaded use the PriorityBlockingQueue class
 
     public static void main(String[] args) {
-//        Heap heap = new Heap(10);
-//
-//        heap.insert(80);
-//        heap.insert(75);
-//        heap.insert(60);
-//        heap.insert(68);
-//        heap.insert(55);
-//        heap.insert(40);
-//        heap.insert(52);
-//        heap.insert(67);
-//
-//        heap.printHeap();
-//        heap.sort();
-//        heap.printHeap();
-//        heap.printHeap();
-//        System.out.println(heap.peek());
-//        heap.delete(0);
-//        System.out.println(heap.peek());
+        Heap heap = new Heap(10);
 
-        String a = "good";
-        String out = a.substring(0,1);
-        System.out.println(out);
+        heap.insert(80);
+        heap.insert(75);
+        heap.insert(60);
+        heap.insert(68);
+        heap.insert(55);
+        heap.insert(40);
+        heap.insert(52);
+        heap.insert(67);
 
-        PriorityQueue<String> pq = new PriorityQueue<>();
-        pq.add("aba");
-        pq.add("aca");
-        pq.add("aaa");
-        pq.add("cca");
-        pq.add("aba");
-        System.out.println(pq.size());
+        heap.printHeap();
+        heap.sort();
+        heap.printHeap();
+        heap.printHeap();
+        System.out.println(heap.peek());
+        heap.delete(0);
+        System.out.println(heap.peek());
 //
 //        System.out.println(pq.peek());
 //        System.out.println(pq.poll());
