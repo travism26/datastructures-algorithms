@@ -1,71 +1,28 @@
 package datastructure.algorithms.heaps;
 
-import java.util.PriorityQueue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
-
-    // left child   = 2i + 1;
-    // right child  = 2i + 2;
-    // Parent       = floor((i-2) / 2) floor = Round down to the smallest whole value
-
-    // Priority heaps use MAX heap
-    // We build the heap as a max heap to use priority heap
-    //      -> highest priority always at the ROOT of the heap.
-    // Min heap is the opposite,
-    //      -> Lowest number at the root
-    // Multi threaded use the PriorityBlockingQueue class
-
     public static void main(String[] args) {
-        Heap heap = new Heap(10);
+        List<Integer> myList = new ArrayList<Integer>(
+                Arrays.asList(-7, 2, 3, 8, -10, 4, -6, -10, -2, -7, 10, 5, 2, 9, -9, -5, 3, 8));
+        System.out.println("##Min heap##");
+        MinHeap minHeap = new MinHeap(myList);
+        System.out.println(minHeap.peek());
+        System.out.println(minHeap.remove());
+        System.out.println(minHeap.remove());
+        System.out.println("Is min-heap property valid:"+minHeap.isMinHeapPropertySatisfied());
+        minHeap.printHeap();
+        minHeap.insert(-12);
+        minHeap.printHeap();
 
-        heap.insert(80);
-        heap.insert(75);
-        heap.insert(60);
-        heap.insert(68);
-        heap.insert(55);
-        heap.insert(40);
-        heap.insert(52);
-        heap.insert(67);
-
-        heap.printHeap();
-        heap.sort();
-        heap.printHeap();
-        heap.printHeap();
-        System.out.println(heap.peek());
-        heap.delete(0);
-        System.out.println(heap.peek());
-//
-//        System.out.println(pq.peek());
-//        System.out.println(pq.poll());
-//        System.out.println(pq.peek());
-//        pq.add(25);
-//        pq.add(-22);
-//        pq.add(1343);
-//        pq.add(54);
-//        pq.add(0);
-//        pq.add(-3492);
-//        pq.add(429);
-//
-//        System.out.println(pq.peek()); // -3492
-//        System.out.println(pq.remove()); // -3492
-//        System.out.println(pq.peek()); // -22
-//        System.out.println(pq.poll()); // -22
-//        System.out.println(pq.peek()); // 0
-//        System.out.println(pq.remove(54)); // true => successfully remove it
-//        Object[] ints = pq.toArray();
-//
-//        System.out.println("-----loop-----");
-//        for (Object num: ints) {
-//            System.out.println(num);
-//        }
-//        System.out.println("-----loop-----");
-//        System.out.println(pq.peek()); // 0
-//        pq.add(-1);
-//        System.out.println(pq.peek()); // -1
-
-
-        // if you create a queue using an object you need to implement
-        // the comparable interface to ensure the class can properly
-        // compare values.
+        System.out.println("##Max heap##");
+        List<Integer> myListTwo = new ArrayList<Integer>(
+                Arrays.asList(-7, 2, 3, 8, -10, 4, -6, -10, -2, -7, 10, 5, 2, 9, -9, -5, 3, 8));
+        MaxHeap maxHeap = new MaxHeap(myListTwo);
+        maxHeap.printHeap();
+        System.out.println("Is Max-heap property valid:"+maxHeap.isMaxHeapPropertySatisfied());
     }
 }
