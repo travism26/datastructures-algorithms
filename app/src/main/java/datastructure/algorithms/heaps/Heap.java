@@ -62,6 +62,7 @@ public abstract class Heap {
         return heap;
     }
 
+    // HELPER FUNCTIONS
     public int getParent(int index) {
         return (index - 1) / 2;
     }

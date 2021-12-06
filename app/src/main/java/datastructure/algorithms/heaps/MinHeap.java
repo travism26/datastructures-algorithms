@@ -7,20 +7,6 @@ public class MinHeap extends Heap {
         super(myList);
     }
 
-    public boolean isMinHeapPropertySatisfied() {
-        List<Integer> array = this.heap;
-        for (int currentIdx = 1; currentIdx < array.size(); currentIdx++) {
-            int parentIdx = (currentIdx - 1) / 2;
-            if (parentIdx < 0) {
-                return true;
-            }
-            if (array.get(parentIdx) > array.get(currentIdx)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
     @Override
     public void fixHeapBelow(int currentIndex, int endIndex, List<Integer> heap) {
         int childSwap;
@@ -63,7 +49,7 @@ public class MinHeap extends Heap {
         // again this is not required you can replace parentIndex -> getParent(currentIndex)
         int parentIndex = getParent(currentIndex); // this is just to make it easier to read
         // if the current index = 0 (root) exit, AND newValue LESS currentIndex's Parent.
-        while(currentIndex > 0 && newValue < heap.get(parentIndex)) {
+        while (currentIndex > 0 && newValue < heap.get(parentIndex)) {
             // Swap the current with its parent (fix above)
             swap(currentIndex, parentIndex, heap);
             // set the current = parent index since thats where we are now at
@@ -71,6 +57,20 @@ public class MinHeap extends Heap {
             // get the new parentIndex
             parentIndex = getParent(currentIndex);
         }
+    }
+
+    public boolean isMinHeapPropertySatisfied() {
+        List<Integer> array = this.heap;
+        for (int currentIdx = 1; currentIdx < array.size(); currentIdx++) {
+            int parentIdx = (currentIdx - 1) / 2;
+            if (parentIdx < 0) {
+                return true;
+            }
+            if (array.get(parentIdx) > array.get(currentIdx)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public String toString() {

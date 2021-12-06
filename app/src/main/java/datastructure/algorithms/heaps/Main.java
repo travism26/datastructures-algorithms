@@ -23,6 +23,8 @@ public class Main {
                 Arrays.asList(-7, 2, 3, 8, -10, 4, -6, -10, -2, -7, 10, 5, 2, 9, -9, -5, 3, 8));
         MaxHeap maxHeap = new MaxHeap(myListTwo);
         maxHeap.printHeap();
+        maxHeap.insert(12);
+        maxHeap.printHeap();
         System.out.println("Is Max-heap property valid:"+maxHeap.isMaxHeapPropertySatisfied());
     }
 }
